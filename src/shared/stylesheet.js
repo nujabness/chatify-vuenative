@@ -45,6 +45,9 @@ const MainStyleSheet = StyleSheet.create({
     mt200:{
         marginTop: 200
     },
+    mr5: {
+        marginRight: 5
+    },
     ml5: {
         marginLeft: 5
     },
@@ -83,6 +86,9 @@ const MainStyleSheet = StyleSheet.create({
     },
     width100:{
         width: 100
+    },
+    width140:{
+        width: 140
     },
     width150:{
         width: 150

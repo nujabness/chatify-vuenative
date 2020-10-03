@@ -3,9 +3,12 @@
         <nb-grid>
             <nb-col :style="styles.alignItemsStart, styles.mt60">
                 <nb-row>
-                   <text>
-                       wdsfdsqfqsdfdsqf
+                   <text :style="styles.colorWhite, styles.fontFamilyCatCafe">
+                       PROFILE
                    </text>
+                    <nb-button :style="styles.bgColorWhite, styles.justifyContentCenter, styles.width250" large rounded :on-press="handleLogOut">
+                        <text :style="styles.fontFamilyCatCafe, styles.mt1">LOG OUT</text>
+                    </nb-button>
                 </nb-row>
             </nb-col>
         </nb-grid>
@@ -16,6 +19,7 @@
 import { Dimensions } from "react-native";
 import { MainStyleSheet } from '../shared/stylesheet'
 import Store from "../store/store"
+import firebase from 'firebase'
 const deviceWidth = Dimensions.get("window").width;
 const deviceHeight = Dimensions.get("window").height;export default {
     props: ['navigation'],
@@ -42,7 +46,9 @@ const deviceHeight = Dimensions.get("window").height;export default {
         }
     },
     methods: {
-
+        handleLogOut() {
+            firebase.auth().signOut()
+        }
     }
 }
 </script>

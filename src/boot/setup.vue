@@ -15,11 +15,9 @@ import {StyleWrapper} from "../components/StyleWrapper";
 import * as Font from "expo-font";
 import App from "../App.vue";
 import firebase from 'firebase'
-import {firebaseConfig} from "../../config";
+import { FIREBASE_CONFIG } from "../shared/constants";
 
-// registering all native-base components to the global scope of the Vue
 Vue.use(VueNativeBase);
-firebase.initializeApp(firebaseConfig)
 
 export default {
   components: { App, AppLoading, StyleWrapper },
@@ -30,8 +28,12 @@ export default {
   },
   created() {
     this.loadFonts();
+    this.initFirebase()
   },
   methods: {
+    initFirebase(){
+      firebase.initializeApp(FIREBASE_CONFIG )
+    },
     async loadFonts() {
       try {
         this.isAppReady = false;
